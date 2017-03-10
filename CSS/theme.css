@@ -43,7 +43,30 @@ nav ul li a:focus {
 nav ul li a:hover {
 	color: #90005B;
 }
-
 nav ul li:hover {
 	border-bottom: 5px solid #90005B;
+}
+
+/* ---------- Footer ------------ */
+footer{
+	position: fixed;
+	bottom: 0px;
+	text-align: center;
+	margin-bottom: 0px;
+	width: 100%;
+	border-bottom: 1px solid grey;
+    -moz-box-shadow: 0px -1px 5px #656565;
+    -webkit-box-shadow: 0px -1px 5px #656565;
+    -o-box-shadow: 0px -1px 5px #656565;
+    box-shadow: 0px -1px 5px #656565;
+	height : 25px;
+	font-size: 10px;
+}
+
+/* ------------ Map ------------- */
+#carte {
+	width: 75%;
+	height: 550px;
+	margin: 0 auto;
+	margin-top: 50px;
 }
