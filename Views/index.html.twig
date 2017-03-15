@@ -28,9 +28,8 @@
 				<nav>
 					<ul>
 						<li><a class="lien" href="index.php?action=accueil">Accueil</a></li>
-						<li><a class="lien" href="index.php?action=">Thèmes</a></li>
-						<li><a class="lien" href="index.php?action=">Agenda</a></li>
-						<li><a class="lien" href="index.php?action=">Projets</a></li>
+						<li><a class="lien" href="index.php?action=">Emploi du temps</a></li>
+						<li><a class="lien" href="index.php?action=">Cherchez une salle</a></li>
 						<li><a class="lien" href="index.php?action=">Statistiques</a></li>
 					</ul> 
 				</nav>
@@ -42,8 +41,11 @@
 		</header>
 
 		<section> 
-			<div id="carte" style="height:550px"></div>
-	
+
+		{% block section %}	
+			{{message}}	
+		{% endblock %}
+			
 		</section>
 
 
@@ -53,7 +55,16 @@
 				zoom: 13,
 				center: new google.maps.LatLng(43.604530, 1.443440)
 			}
+
 		var maCarte = new google.maps.Map(document.getElementById("carte"), optionsCarte);
+		
+
+		var optionsMarqueur = {
+	position: maCarte.getCenter(),
+	map: maCarte
+};
+
+var marqueur = new google.maps.Marker(optionsMarqueur);
 		}
 	</script>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuvgmNIZ8WXFy6hAnW_dcSJeVXyswCUBg&callback=initialisation"></script>

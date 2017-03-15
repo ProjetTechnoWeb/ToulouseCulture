@@ -64,9 +64,21 @@ footer{
 }
 
 /* ------------ Map ------------- */
+
 #carte {
-	width: 75%;
+	float: left;
+	left: 5%;
+	width: 25%;
+	border: 1px solid black;
 	height: 550px;
-	margin: 0 auto;
+	margin-top: 50px;
+}
+
+#slider {
+	float: right;
+	width: 60%;
+	margin-right: 5%;
+	border: 1px solid black;
+	height: 550px;
 	margin-top: 50px;
 }
