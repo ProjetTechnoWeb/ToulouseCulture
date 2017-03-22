@@ -11,7 +11,8 @@ Mot de Passe : technoweb2017
 Pour accéder à PHPMyAdmin , notre gestionnaire de base de données trop cool : 
 pour y rentre chez sur le site de hostiger y a un onglet PHPMyAdmin, 
 sinon http://sql55.hostinger.fr/phpmyadmin/index.php?db=u417899806_bdd&token=af9f63a520686239edd7a6d0a65b2b2d&phpMyAdmin=d20ea786ec96556389417688e5eebc3b3796f54d
-
+Utilisateur: u417899806_aem
+Mot de Passe technoweb2017
 
 Les identifiants ftp pour se connecter à filezilla, car ça sera nécessaire comme on travaillera sur un serveur
 Hôte	     : ftp://projettechnoweb.esy.es/

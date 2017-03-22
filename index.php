@@ -21,8 +21,8 @@ require_once ("moteurtemplate.php");
 		$action = $_GET["action"]; 
 		switch ($action) {
 		
-		case "accueil" : // accueil
-			echo $twig->render('accueil.html.twig'); // viewer	
+		case "accueil" : // si l'action est "accueil"
+			echo $twig->render('accueil.html.twig'); // viewer, va afficher le fichier accueil.html.twig	
 		break;
 		
 		}	
