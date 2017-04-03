@@ -1,0 +1,44 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+
+	<div id="formulaireStats">
+		<form method="post">
+			<h2>Statistiques</h2>
+			<fieldset>
+				<legend><strong>Quartiers</strong></legend>
+				<label>Sélectionnez un ou plusieurs quartiers : </label>
+				<select>
+					<option>Tous les quartiers</option>
+				</select>
+				<p>Vous avez sélectionnez : </p>
+			</fieldset>
+
+			<fieldset>
+				<legend><strong>Catégories</strong></legend>
+				<label>Nombre de salles de : </label>
+				<select>
+					<option>Type de salle</option>
+				</select><br/>
+
+				<label>En fonction de : </label>
+				<select>
+					<option>Population totale</option>
+				</select>
+			</fieldset>
+
+			<fieldset>
+				<legend><strong>Types de graphiques</strong></legend>
+				<label>Sélectionnez maintenant le type de graphique souhaité : </label>
+				<p> Futur liste d'images </p>
+			</fieldset>
+		<input type="submit" value="Valider">
+		</form>
+	</div>
+
+
+	<div id="placeStats">
+	<p>Ici viendront les statistiques</p>
+	</div>
+	
+{% endblock %}
