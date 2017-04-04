@@ -90,7 +90,7 @@ footer{
 	width: 35%;
 	height: 550px;
 	margin-top: 50px;
-	background-color: rgba(144, 0, 91, 0.2);
+	background-color: rgba(144, 0, 91, 0.1);
 	border-radius: 10px;
 }
 
@@ -113,4 +113,17 @@ footer{
 	height: 550px;
 	margin-top: 50px;
 
+}
+
+#selection div {
+	display: inline-block;
+	margin-left: 10px;
+	border : 1px solid #90005B;
+	padding: 0px 5px;
+	background-color:  rgba(144, 0, 91, 0.2);
+}
+
+#selection * {
+	font-size: 10px;
+	display: inline-block;
 }
