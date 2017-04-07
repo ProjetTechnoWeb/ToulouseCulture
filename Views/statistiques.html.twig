@@ -6,9 +6,16 @@
 	<div id="formulaireStats">
 		<form method="post">
 			<h2>Statistiques</h2>
+
+		<!--	<fieldset>
+				<legend><strong>Types de graphiques</strong></legend>
+				<label>Sélectionnez tout d'abord le type de graphique souhaité : </label>
+				<p>Futur liste d'images </p>
+			</fieldset>
+			
 			<fieldset>
 				<legend><strong>Quartiers</strong></legend>
-				<label>Sélectionnez un ou plusieurs quartiers : </label>
+				<label>Sélectionnez les quartiers que vous souhaitez comparer : </label>
 				<select id="selectQuartierStat">
 					<option value="0">Sélection de quartier</option>
 					<option value="1">Quartier 1</option>
@@ -17,7 +24,7 @@
 					<option value="4">Tous les quartiers</option>
 				</select>
 				<div id="selection"></div> <!-- Futur emplacement des tags -->
-			</fieldset>
+			<!-- </fieldset>
 
 			<fieldset>
 				<legend><strong>Catégories</strong></legend>
@@ -30,13 +37,22 @@
 				<select>
 					<option>Population totale</option>
 				</select>
-			</fieldset>
+			</fieldset> -->
 
 			<fieldset>
-				<legend><strong>Types de graphiques</strong></legend>
-				<label>Sélectionnez maintenant le type de graphique souhaité : </label>
-				<p> Futur liste d'images </p>
+				<legend><strong>Que souhaitez-vous comparer ? </strong></legend>
+				<ul id="listeFormStats">
+					<li><a id="lienManifs" href="#">Le nombre de manifestations en fonction des quartiers</a></li>
+					<li><a id="lienSalles" href="#">Le nombre de salles liées à la culture en fonction des quartiers</a></li>
+					<li><a id="lienAutres" href="#">Le nombre de manifestations/salles en fonction de critères sociaux</a></li>
+				</ul>
 			</fieldset>
+			
+			<div id="manifs"></div>
+
+			<div id="salles"></div>
+
+			<div id="autres"></div>
 		<input type="submit" value="Valider">
 		</form>
 	</div>
