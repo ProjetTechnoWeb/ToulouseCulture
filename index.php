@@ -1,7 +1,4 @@
 <?php
-//------------------- les objets de l'application ----------------
-
-
 //---------------------- les vues -------------------------------
 // moteur de template pour les vues
 require_once ("moteurtemplate.php");
@@ -9,13 +6,14 @@ require_once ("moteurtemplate.php");
 // ---------------------- les models ------------------------------
 
 //---------------------- les Classes -----------------------------
-require_once ("Modules/batiments.php");
+require_once ("Modules/typebatiments.php");
 
 // ----------------------Les managers ---------------------------
+require_once("Models/typeBatimentsManager.php");
 
 
-
-
+// ----------------------Les managers ---------------------------
+$typeBatManager = new TypeBatimentManager($bdd);
 
 // ------------------------------------------------------------------------------------
 	if (isset($_GET["action"])) {
