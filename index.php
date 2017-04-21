@@ -7,21 +7,24 @@ require_once ("moteurtemplate.php");
 
 //---------------------- les Classes -----------------------------
 require_once ("Modules/typebatiments.php");
+require_once ("Modules/manifestation.php");
 
 // ----------------------Les managers ---------------------------
 require_once("Models/typeBatimentsManager.php");
-
+require_once("Models/manifestationManager.php");
 
 // ----------------------Les managers ---------------------------
 $typeBatManager = new TypeBatimentManager($bdd);
+$manifestationManager = new ManifestationManager($bdd);
 
 // ------------------------------------------------------------------------------------
 	if (isset($_GET["action"])) {
 		$action = $_GET["action"]; 
 		switch ($action) {
 		
-		case "accueil" : // si l'action est "accueil"
-			echo $twig->render('accueil.html.twig'); // viewer, va afficher le fichier accueil.html.twig	
+		case "accueil" : // si l'action est "accueil"			
+			$manifsSlider = $manifestationManager->randomManifSlider();
+			echo $twig->render('accueil.html.twig', array('manifsSlider' => $manifsSlider)); // viewer, va afficher le fichier accueil.html.twig	
 		break;
 		case "statistiques" : // si l'action est "statistiques"
 			echo $twig->render('statistiques.html.twig'); // viewer, va afficher le fichier statistiques.html.twig	
