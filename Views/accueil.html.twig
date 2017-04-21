@@ -4,33 +4,28 @@
 
 	<div id="carte"></div>
 
+	<!-- 
+
+		<p>{{manif.idManif}}</p>
+
+ -->
 	<div id="slider">
 
 		<div class="slideshow-container">
 
+		{% for manif in manifs %} <!-- POur chacune des trois manfis -->
 	<div class="mySlides fade">
-	  <div class="titre">De l'imagination</div>
-	  <a href="http://www.tnt-cite.com/content/fr/date/2017-05-03/Les-Oiseaux_De-l_imagination/#/184/De-l_imagination"><img class="imagesSlider" src="Images/manif159.jpg" style="width:100%">
+	  <div class="titre">{{manif.nomManif}}</div>
+	  <a href="http://www.tnt-cite.com/content/fr/date/2017-05-03/Les-Oiseaux_De-l_imagination/#/184/De-l_imagination"><img class="imagesSlider" src="Images/{{manif.image}}" style="width:100%">
 	  </a>
 	  <div class="text"> inspiré de Barbe bleue de Charles Perrault</div>
 	</div>
 
-	<div class="mySlides fade">
-	  <div class="titre">Soy de Cuba</div>
-	  <a href="http://www.fnacspectacles.com/place-spectacle/manifestation/Danse-du-monde-SOY-DE-CUBA-SOY17.htm#/disponibilite/0cb7bc27c0a8280e55dabcf48fd086a6/normale"><img class="imagesSlider" src="Images/manif37.jpg" style="width:100%">
-	  </a>
-	  <div class="text">Danse du monde, Grand spectacle, Musique Caraïbes/Amérique latine</div>
-	  
-	</div>
-
-	<div class="mySlides fade">
-	  <div class="titre">The Elephant in the room</div>
-	  <a href="http://www.odyssud.com/elephant-room"> <img class="imagesSlider" src="Images/manif38.jpg" style="width:100%">
-	  </a>
-	  <div class="text">Délicieusement rétro, le Cirque Le Roux mise sur le burlesque pour envelopper d'élégance une mystérieuse intrigue.</div>
-	</div>
+	
+	{% endfor %}
 
 	</div>
+
 	<br>
 
 	<div style="text-align:center">

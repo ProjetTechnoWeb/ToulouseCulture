@@ -7,18 +7,22 @@ class ManifestationManager
     {
         private $_db; // Instance de PDO - objet de connexion au SGBD
         
-		// Constructeur = initialisation de la connexion vers le SGBD
+        // Constructeur = initialisation de la connexion vers le SGBD
         public function __construct($db) {
             $this->_db=$db;
         }
 		
-		// retourne l'ensemble des types de batiment
+		// retourne 3 manif au hasard à afficher sur l'accueil
 		 public function randomManifSlider() {
             $manifs = array();  
-            $q = $this->_db->query("SELECT * FROM MANIFESTATION WHERE IMAGE !='' LIMIT 3");
+            $q = $this->_db->query("SELECT ID_MANIF, NOMMANIF, DESCRIPMANIF, IMAGE FROM MANIFESTATION WHERE IMAGE !='' AND HEUREMANIF != '' ORDER BY RAND() LIMIT 3");
+
             while ($donnees = $q->fetch())
             {
-                $manifs[] = new ManifestationManager($donnees);
+              
+                $donnees2 = array('ID_MANIF' => $donnees[0],'NOMMANIF'=> $donnees['NOMMANIF'], 'DESCRIPMANIF'=> $donnees['DESCRIPMANIF'], 'IMAGE' =>$donnees['IMAGE']);
+                $manifs[] = new Manifestation($donnees2);
+             
             }
             return $manifs;
         }
