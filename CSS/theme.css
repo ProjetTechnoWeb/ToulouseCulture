@@ -77,9 +77,12 @@ footer{
 	float: right;
 	width: 60%;
 	margin-right: 5%;
-	border: 1px solid black;
 	height: 550px;
 	margin-top: 50px;
+}
+
+.imagesSlider {
+	height: 550px;
 }
 
 /* ----------- Statistiques ------------ */
