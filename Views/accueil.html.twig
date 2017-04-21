@@ -3,6 +3,67 @@
 {% block section %}
 
 	<div id="carte"></div>
-	<div id="slider"><p>Futur Slider</p></div>
+
+	<div id="slider">
+		<div class="slideshow-container">
+
+	<div class="mySlides fade">
+	  <div class="titre">De l'imagination</div>
+	  <a href="http://www.tnt-cite.com/content/fr/date/2017-05-03/Les-Oiseaux_De-l_imagination/#/184/De-l_imagination"><img class="imagesSlider" src="Images/manif159.jpg" style="width:100%">
+	  </a>
+	  <div class="text"> inspiré de Barbe bleue de Charles Perrault</div>
+	</div>
+
+	<div class="mySlides fade">
+	  <div class="titre">Soy de Cuba</div>
+	  <a href="http://www.fnacspectacles.com/place-spectacle/manifestation/Danse-du-monde-SOY-DE-CUBA-SOY17.htm#/disponibilite/0cb7bc27c0a8280e55dabcf48fd086a6/normale"><img class="imagesSlider" src="Images/manif37.jpg" style="width:100%">
+	  </a>
+	  <div class="text">Danse du monde, Grand spectacle, Musique Caraïbes/Amérique latine</div>
+	  
+	</div>
+
+	<div class="mySlides fade">
+	  <div class="titre">The Elephant in the room</div>
+	  <a href="http://www.odyssud.com/elephant-room"> <img class="imagesSlider" src="Images/manif38.jpg" style="width:100%">
+	  </a>
+	  <div class="text">Délicieusement rétro, le Cirque Le Roux mise sur le burlesque pour envelopper d'élégance une mystérieuse intrigue.</div>
+	</div>
+
+	</div>
+	<br>
+
+	<div style="text-align:center">
+	  <span class="dot"></span> 
+	  <span class="dot"></span> 
+	  <span class="dot"></span> 
+	</div>
+	
+	<script type="text/javascript">
+	var slideIndex = 0;
+	showSlides();
+
+
+	//fonction qui permet le slide tout seul
+	function showSlides() {
+		var i;
+		var slides = document.getElementsByClassName("mySlides");
+		var dots = document.getElementsByClassName("dot");
+		for (i = 0; i < slides.length; i++) {
+		   slides[i].style.display = "none";  
+		}
+		slideIndex++;
+		if (slideIndex> slides.length) {slideIndex = 1}    
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+		}
+		slides[slideIndex-1].style.display = "block";  
+		dots[slideIndex-1].className += " active";
+		setTimeout(showSlides, 2000); // Change l'image toute les 2 secondes 
+	}
+
+	</script>
+
+
+	</div>
 	
 {% endblock %}

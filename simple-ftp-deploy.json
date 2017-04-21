@@ -1,0 +1,7 @@
+{
+	"host" : "projettechnoweb.esy.es",
+	"port": 21,
+	"username": "u417899806",
+	"password": "technoweb2017",
+	"rootDirectory": "/public_html/"
+}
