@@ -8,14 +8,17 @@ require_once ("moteurtemplate.php");
 //---------------------- les Classes -----------------------------
 require_once ("Modules/typebatiments.php");
 require_once ("Modules/manifestation.php");
+require_once ("Modules/quartier.php");
 
 // ----------------------Les managers ---------------------------
 require_once("Models/typeBatimentsManager.php");
 require_once("Models/manifestationManager.php");
+require_once("Models/quartierManager.php");
 
 // ----------------------Les managers ---------------------------
 $typeBatManager = new TypeBatimentManager($bdd);
 $manifestationManager = new ManifestationManager($bdd);
+$quartierManager = new QuartierManager($bdd);
 
 // ------------------------------------------------------------------------------------
 	if (isset($_GET["action"])) {
@@ -28,7 +31,9 @@ $manifestationManager = new ManifestationManager($bdd);
 			echo $twig->render('accueil.html.twig' , array('manifs' => $manifsSlider)); // viewer, va afficher le fichier accueil.html.twig	
 		break;
 		case "statistiques" : // si l'action est "statistiques"
-			echo $twig->render('statistiques.html.twig'); // viewer, va afficher le fichier statistiques.html.twig	
+			$quartiers = $quartierManager->getListeQuartier("json");
+			$quartiers = json_encode($quartiers);
+			echo $twig->render('statistiques.html.twig', array('quartiers' =>$quartiers)); // viewer, va afficher le fichier statistiques.html.twig	
 		break;
 	
 		case "calendrier" : 
@@ -37,6 +42,10 @@ $manifestationManager = new ManifestationManager($bdd);
 		case "chercher" : 
 			echo $twig->render('chercher.html.twig'); // viewer	
 		break;
+		case "listequartier" :
+			$quartiers = $quartierManager->getListeQuartier("json");
+			$quartiers = json_encode($quartiers);
+			echo $twig->render('listeQuartier.html.twig', array('quartiers' =>$quartiers)); // viewer, va afficher le fichier 
 		}
 	}
 	else {		
