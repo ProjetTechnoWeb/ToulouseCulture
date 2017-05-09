@@ -1,31 +1,31 @@
 <?php 
 // définition de la classe Quartier
 class Quartier {   
-	private $idQuartier;
-    private $longitude;
-    private $latitude;
-    private $polygone;
-    private $nom;
-    private $nbScolarise;
-    private $nbMenage;
-    private $populationTotal;
-    private $nbPersActivite;
-    private $nbLogementQuartier;
+	private $_idQuartier;
+    private $_longitude;
+    private $_latitude;
+    private $_polygone;
+    private $_nom;
+    private $_nbScolarise;
+    private $_nbMenage;
+    private $_populationTotal;
+    private $_nbPersActivite;
+    private $_nbLogementQuartier;
         
 		
         // constructeur
         public function __construct(array $donnees) {
 		// initialisation d'un batiment à partir d'un tableau de données
-			if (isset($donnees['idQuartier'])) { $this->_idQuartier = $donnees['idQuartier']; }
-			if (isset($donnees['longitude'])) { $this->_longitude = $donnees['longitude']; }
-			if (isset($donnees['latitude'])) { $this->_latitude = $donnees['latitude']; }
-			if (isset($donnees['polygone'])) { $this->_polygone = $donnees['polygone']; }
-			if (isset($donnees['nom'])) { $this->_nom = $donnees['nom']; }
-			if (isset($donnees['nbScolarise'])) { $this->_nbScolarise = $donnees['nbScolarise']; }
-			if (isset($donnees['nbMenage'])) { $this->_nbMenage = $donnees['nbMenage']; }
-			if (isset($donnees['populationTotal'])) { $this->_populationTotal = $donnees['populationTotal']; }
-			if (isset($donnees['nbPersActivite'])) { $this->_nbPersActivite = $donnees['nbPersActivite']; }
-			if (isset($donnees['nbLogementQuartier'])) { $this->_nbLogementQuartier = $donnees['nbLogementQuartier']; }
+			if (isset($donnees['ID_QUARTIER'])) { $this->_idQuartier = $donnees['ID_QUARTIER']; }
+			if (isset($donnees['LONGITUDE'])) { $this->_longitude = $donnees['LONGITUDE']; }
+			if (isset($donnees['LATITUDE'])) { $this->_latitude = $donnees['LATITUDE']; }
+			if (isset($donnees['POLYGONE'])) { $this->_polygone = $donnees['POLYGONE']; }
+			if (isset($donnees['NOM'])) { $this->_nom = $donnees['NOM']; }
+			if (isset($donnees['NBRSCOLARISES'])) { $this->_nbScolarise = $donnees['NBRSCOLARISES']; }
+			if (isset($donnees['NBRMENAGES'])) { $this->_nbMenage = $donnees['NBRMENAGES']; }
+			if (isset($donnees['POPULATIONTOTALE'])) { $this->_populationTotal = $donnees['POPULATIONTOTALE']; }
+			if (isset($donnees['NBRPERSACTIVES'])) { $this->_nbPersActivite = $donnees['NBRPERSACTIVES']; }
+			if (isset($donnees['NBRLOGEMENTSQUARTIER'])) { $this->_nbLogementQuartier = $donnees['NBRLOGEMENTSQUARTIER']; }
 		}	
 		
         // GETTERS //
