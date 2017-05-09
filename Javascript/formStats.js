@@ -1,47 +1,83 @@
 $(document).ready(function() {
-  
-  	var lien = 0;
+
+
+    var url = "http://projettechnoweb.esy.es/index.php?action=listequartier";
+    var lienM = 0;
+    var lienS = 0;
+    
 	// complete le formulaire si on souhaite faire un graphique du nombre de manifs manifs selon les quartiers
    	$("#lienManifs").click(function() {
-   		var field  = "<fieldset>"
-				+ "<legend><strong>Quartiers</strong></legend>"
-				+ "<label>Sélectionnez les quartiers que vous souhaitez comparer : </label>"
-				+ "<select id='selectQuartierStat'>"
-				+	"<option value='0'>Sélection de quartier</option>"
-				+	"<option value='1'>Quartier 1</option>"
-				+	"<option value='2'>Quartier 2</option>"
-				+	"<option value='3'>Quartier 3</option>"
-				+	"<option value='4'>Tous les quartiers</option>"
-				+ "</select>"
-				+ "<div id='selection'></div>"
-				+ "</fieldset>";
-		if(lien == 0) {
-			$("#manifs").append(field);
-			lien = 1;
-		}
-   	});
+      $.get(url, function( data ) {
+        
+        data = JSON.parse(data.replace(/&quot;/g,'"'));
+        
+        var field  = "<p>Manifestations</p>"
+          + "<fieldset>"
+          + "<legend><strong>Quartiers</strong></legend>"
+          + "<label>Sélectionnez les quartiers que vous souhaitez comparer : </label>"
+          + "<select id='selectQuartierStat'>"
+          + "<option value='99'>Sélection de quartier</option>"
+          + "<option value='100'>Tous les quartiers</option>"
+          + "</select>"
+          + "<div id='selection'></div>"
+          + "</fieldset>";
+          
+    if(lienM == 0) {
+      $("#manifs").append(field);
+      $("#salles").children().remove();
+      lienM = 1;
+      lienS = 0;
+    }
+        var i = 0;
+        for(i; i<data.length; i++) {
+          idQuartier = data[i].ID_QUARTIER;
+          nom = data[i].NOM;
+        
+          $("#selectQuartierStat").append("<option value='"+idQuartier+"'>"+nom+"</option>");
 
 
-   	// complete le formulaire si on souhaite faire un graphique du nombre de salles selon les quartiers
-   	$("#lienSalles").click(function() {
+      }
+    });
+        
+  });
 
-   		var field  = "<fieldset>"
-				+ "<legend><strong>Quartiers</strong></legend>"
-				+ "<label>Sélectionnez les quartiers que vous souhaitez comparer : </label>"
-				+ "<select id='selectQuartierStat'>"
-				+	"<option value='0'>Sélection de quartier</option>"
-				+	"<option value='1'>Quartier 1</option>"
-				+	"<option value='2'>Quartier 2</option>"
-				+	"<option value='3'>Quartier 3</option>"
-				+	"<option value='4'>Tous les quartiers</option>"
-				+ "</select>"
-				+ "<div id='selection'></div>"
-				+ "</fieldset>";
-		if(lien == 0) {
-			$("#salles").append(field);
-			lien = 1;
-		}
-   	});
+
+
+  // complete le formulaire si on souhaite faire un graphique du nombre de manifs manifs selon les quartiers
+    $("#lienSalles").click(function() {
+      $.get(url, function( data ) {
+        
+        data = JSON.parse(data.replace(/&quot;/g,'"'));
+        
+        var field  = "<p>Salles</p>"
+          + "<fieldset>"
+          + "<legend><strong>Quartiers</strong></legend>"
+          + "<label>Sélectionnez les quartiers que vous souhaitez comparer : </label>"
+          + "<select id='selectQuartierStat'>"
+          + "<option value='99'>Sélection de quartier</option>"
+          + "<option value='100'>Tous les quartiers</option>"
+          + "</select>"
+          + "<div id='selection'></div>"
+          + "</fieldset>";
+          
+    if(lienS == 0) {
+      $("#salles").append(field);
+      $("#manifs").children().remove();
+      lienS = 1;
+      lienM = 0;
+    }
+        var i = 0;
+        for(i; i<data.length; i++) {
+          idQuartier = data[i].ID_QUARTIER;
+          nom = data[i].NOM;
+        
+          $("#selectQuartierStat").append("<option value='"+idQuartier+"'>"+nom+"</option>");
+
+
+      }
+    });
+        
+  });
 
 
    	// création des tags de quartiers
@@ -50,8 +86,8 @@ $(document).ready(function() {
    		var champ = $("#selectQuartierStat option:selected").text();
     	var id = $("#selectQuartierStat option:selected").val();
 
-   		if(id != 0) {
-   			if(id ==4 ) {
+   		if(id != 99) {
+   			if(id ==100 ) {
     			$("#selection div").each(function() {
     				$(this).remove();
     			});
@@ -95,8 +131,7 @@ $(document).ready(function() {
 
         chart.draw(data, options);
     }
-
+  
 
 });
-
 
