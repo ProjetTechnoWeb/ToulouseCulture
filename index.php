@@ -24,6 +24,7 @@ $manifestationManager = new ManifestationManager($bdd);
 		
 		case "accueil" : // si l'action est "accueil"			
 			$manifsSlider = $manifestationManager->randomManifSlider();
+			print_r($manifsSlider);
 			echo $twig->render('accueil.html.twig', array('manifsSlider' => $manifsSlider)); // viewer, va afficher le fichier accueil.html.twig	
 		break;
 		case "statistiques" : // si l'action est "statistiques"
