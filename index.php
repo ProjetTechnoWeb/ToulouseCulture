@@ -27,8 +27,8 @@ $quartierManager = new QuartierManager($bdd);
 		
 		case "accueil" : // si l'action est "accueil"			
 			$manifsSlider = $manifestationManager->randomManifSlider();
-
 			echo $twig->render('accueil.html.twig' , array('manifs' => $manifsSlider)); // viewer, va afficher le fichier accueil.html.twig	
+
 		break;
 		case "statistiques" : // si l'action est "statistiques"
 			$quartiers = $quartierManager->getListeQuartier("json");

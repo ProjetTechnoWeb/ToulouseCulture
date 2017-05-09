@@ -1,7 +1,27 @@
 {% extends "index.html.twig" %}
 
 {% block section %}
-
+<form action="/action_page.php">
+  <fieldset>
+    <legend>Recherche d'une salle:</legend>
+    Nom de salle:<br>
+    <input type="text" name="firstname" value="">
+    <br><br>
+    
+    Type de salle:<br>
+    <form action="/action_page.php">
+    <select name="cars">
+      <option value="Théatre">Théatre</option>
+      <option value="Cinéma">Cinéma</option>
+      <option value="Conférence">Salle de conférence</option>
+      <option value="Enseignement">Lieu d'enseignement</option>
+      <option value="Café">Café concert</option>
+      <option value="Art">Galerie d'art</option>
+      <option value="Musée">Musée</option>
+      <option value="Ludothéque">Ludothéque</option>
+    </select>
+  <br><br>
+    <input type="submit" value="Submit">
 
 
 {% endblock %}
