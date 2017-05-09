@@ -8,8 +8,8 @@ class TransportManager
         private $_db; // Instance de PDO - objet de connexion au SGBD
         
 		// Constructeur = initialisation de la connexion vers le SGBD
-        public function __construct($db) {
-            $this->_db=$db;
+        public function __construct($_db) {
+            $this->_db=$_db;
         }
 		
 		// retourne l'ensemble des types de batiment

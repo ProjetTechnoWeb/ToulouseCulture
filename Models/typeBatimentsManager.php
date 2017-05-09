@@ -18,8 +18,9 @@ class TypeBatimentManager
             $q = $this->_db->query('SELECT idtypebat, typebat FROM TYPE_BATIMENT');
             while ($donnees = $q->fetch())
             {
-                $typesBatiments[] = new TypeBatimentManager($donnees);
+                $typesBatiments[] = new TypeBatiment($donnees);
             }
+            print_r($typesBatiments);
             return $typesBatiments;
         }
 		
@@ -27,7 +28,7 @@ class TypeBatimentManager
 		public function getTypeBatiment($idTypeBat) {
             $q = $this->_db->query("SELECT typebat FROM TYPE_BATIMENT where idtypebat ='".$idTypeBat."'");
 						
-            $typebat = new TypeBatimentManager($q->fetch());
+            $typebat = new TypeBatiment($q->fetch());
 			return $typeBat;
         }
     }
