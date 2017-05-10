@@ -92,7 +92,7 @@ $(document).ready(function() {
           nom = data[i].NOM;
 
           for(j; j<tab.length; j++) {
-            if(tab[j] ==  idQuartier ) {
+            if(tab[j] ==  idQuartier) {
               tab2.push(idQuartier);
              // console.log("i"+idQuartier);
               tab2[idQuartier] = tab2[idQuartier] + 1 ;
@@ -120,10 +120,10 @@ $(document).ready(function() {
       $.get(url, function( data ) {
       data = JSON.parse(data.replace(/&quot;/g,'"'));
       var tab3 =[];
-      for(var i = 0; i<data.length; i++) {
+      for(var i =1; i<=data.length; i++) {
         
-        idQuartier = data[i].IDQUARTIER;
-        nom = data[i].NOM;
+        idQuartier = data[i-1].IDQUARTIER;
+        nom = data[i-1].NOM;
         tab3[0] = ["quartier", "nombre de salles"];
         tab3[i] = [nom, tab[i]];
          
@@ -137,6 +137,7 @@ $(document).ready(function() {
         chart.draw(data2, options);
         });
     }
+
 
 
 
