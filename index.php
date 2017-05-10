@@ -9,9 +9,11 @@ require_once ("moteurtemplate.php");
 require_once ("Modules/typebatiments.php");
 require_once ("Modules/manifestation.php");
 require_once ("Modules/quartier.php");
+require_once ("Modules/batiment.php");
 
 // ----------------------Les managers ---------------------------
 require_once("Models/typeBatimentsManager.php");
+require_once("Models/batimentsManager.php");
 require_once("Models/manifestationManager.php");
 require_once("Models/quartierManager.php");
 
@@ -19,6 +21,7 @@ require_once("Models/quartierManager.php");
 $typeBatManager = new TypeBatimentManager($bdd);
 $manifestationManager = new ManifestationManager($bdd);
 $quartierManager = new QuartierManager($bdd);
+$batimentsManager = new BatimentManager($bdd);
 
 // ------------------------------------------------------------------------------------
 	if (isset($_GET["action"])) {
@@ -46,6 +49,12 @@ $quartierManager = new QuartierManager($bdd);
 			$quartiers = $quartierManager->getListeQuartier("json");
 			$quartiers = json_encode($quartiers);
 			echo $twig->render('listeQuartier.html.twig', array('quartiers' =>$quartiers)); // viewer, va afficher le fichier 
+		break;
+		case "listeBatiments" :
+			$batiments = $batimentsManager->getListeBatiments("json");
+			$batiments = json_encode($batiments);
+			echo $twig->render('listeBatiments.html.twig', array('batiments' => $batiments));
+		break;
 		}
 	}
 	else {		

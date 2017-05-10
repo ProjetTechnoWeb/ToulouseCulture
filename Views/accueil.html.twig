@@ -64,6 +64,25 @@
 
 	</script>
 
+<script type="text/javascript">
+		function initialisation(){
+			var optionsCarte = {
+				zoom: 13,
+				center: new google.maps.LatLng(43.604530, 1.443440)
+			}
+
+		var maCarte = new google.maps.Map(document.getElementById("carte"), optionsCarte);
+		
+
+		var optionsMarqueur = {
+	position: maCarte.getCenter(),
+	map: maCarte
+};
+
+var marqueur = new google.maps.Marker(optionsMarqueur);
+		}
+	</script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuvgmNIZ8WXFy6hAnW_dcSJeVXyswCUBg&callback=initialisation"></script>
 
 	</div>
 	

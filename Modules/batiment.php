@@ -1,30 +1,30 @@
 <?php 
 // définition de la classe Batiment
 class Batiment {   
-		private $idBat;
-		private $idQuartier;
-		private $idTypeBat;
-		private $longitude;
-		private $latitude ;
-		private $nom;
-		private $descrCourt;
-		private $descrLong;
-		private $ouverture;
-		private $fermeture;
+		private $_idBat;
+		private $_idQuartier;
+		private $_idTypeBat;
+		private $_longitude;
+		private $_latitude ;
+		private $_nom;
+		private $_descrCourt;
+		private $_descrLong;
+		private $_ouverture;
+		private $_fermeture;
         
         // constructeur
         public function __construct(array $donnees) {
 		// initialisation d'un batiment à partir d'un tableau de données
-			if (isset($donnees['idBat'])) { $this->_idBat = $donnees['idBat']; }
-			if (isset($donnees['idQuartier'])) { $this->_idQuartier = $donnees['idQuartier']; }
-			if (isset($donnees['idTypeBat'])) { $this->_idTypeBat = $donnees['idTypeBat']; }
-			if (isset($donnees['longitude'])) { $this->_longitude = $donnees['longitude']; }
-			if (isset($donnees['latitude'])) { $this->_latitude = $donnees['latitude']; }
-			if (isset($donnees['nom'])) { $this->_nom = $donnees['nom']; }
-			if (isset($donnees['descrCourt'])) { $this->_descrCourt = $donnees['descrCourt']; }
-			if (isset($donnees['DescrLong'])) { $this->_DescrLongt = $donnees['descrLong']; }
-			if (isset($donnees['ouverture'])) { $this->_ouverture = $donnees['ouverture']; }
-			if (isset($donnees['fermeture'])) { $this->_fermeture = $donnees['fermeture']; }
+			if (isset($donnees['IDBAT'])) { $this->_idBat = $donnees['IDBAT']; }
+			if (isset($donnees['IDQUARTIER'])) { $this->_idQuartier = $donnees['IDQUARTIER']; }
+			if (isset($donnees['IDTYPEBAT'])) { $this->_idTypeBat = $donnees['IDTYPEBAT']; }
+			if (isset($donnees['LONGITUDE'])) { $this->_longitude = $donnees['LONGITUDE']; }
+			if (isset($donnees['LATITUDE'])) { $this->_latitude = $donnees['LATITUDE']; }
+			if (isset($donnees['NOM'])) { $this->_nom = $donnees['NOM']; }
+			if (isset($donnees['DESCPRCOURT'])) { $this->_descrCourt = $donnees['DESCPRCOURT']; }
+			if (isset($donnees['DESCPRLONG'])) { $this->_DescrLongt = $donnees['DESCPRLONG']; }
+			if (isset($donnees['OUVERTURE'])) { $this->_ouverture = $donnees['OUVERTURE']; }
+			if (isset($donnees['FERMETURE'])) { $this->_fermeture = $donnees['FERMETURE']; }
 		}	
 		
         // GETTERS //
