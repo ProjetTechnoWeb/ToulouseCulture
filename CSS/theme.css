@@ -86,7 +86,7 @@ footer{
 }
 
 /* ----------- Statistiques ------------ */
-#formulaireStats {
+#formulaireStats,#formulaire {
 	float: left;
 	margin-left: 5%;
 	width: 35%;
@@ -96,15 +96,15 @@ footer{
 	border-radius: 10px;
 }
 
-#formulaireStats h2 {
+#formulaireStats h2, #formulaire h2 {
 	color: #90005B;
 }
-#formulaireStats form {
+#formulaireStats form, #formulaire form {
 	margin-left: 5%;
 	margin-right: 5%;
 }
 
-#formulaireStats form fieldset {
+#formulaireStats form fieldset, #formulaire form fieldset {
 	margin-bottom: 5%;
 }
 #placeStats {

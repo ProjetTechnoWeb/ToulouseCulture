@@ -9,6 +9,8 @@ class Manifestation {
 		private $_nomManif;
 		private $_descripManif;
         private $_image;
+        private $_latitude;
+        private $_longitude;
 
         // constructeur
         public function __construct(array $donnees) {
@@ -21,6 +23,8 @@ class Manifestation {
 			if (isset($donnees['NOMMANIF'])) { $this->_nomManif = $donnees['NOMMANIF']; }
 			if (isset($donnees['DESCRIPMANIF'])) { $this->_descripManif = $donnees['DESCRIPMANIF']; }
 			if (isset($donnees['IMAGE'])) { $this->_image = $donnees['IMAGE']; }
+			if (isset($donnees['LATITUDE'])) { $this->_latitude = $donnees['LATITUDE']; }
+			if (isset($donnees['LONGITUDE'])) { $this->_longitude = $donnees['LONGITUDE']; }
 
 		}	
 		
@@ -33,6 +37,8 @@ class Manifestation {
 		public function nomManif() { return $this->_nomManif;}
 		public function descripManif() { return $this->_descripManif;}
 		public function image() { return $this->_image;}
+		public function latitude() { return $this->_latitude;}
+		public function longitude() { return $this->_longitude;}
 
 		
 		// SETTERS //
@@ -44,5 +50,8 @@ class Manifestation {
 		public function setNomManif($nomManif) { $this->_nomManif = $nomManif; }
 		public function setDescripManif($descripManif) { $this->_descripManif = $descripManif; }
 		public function setImage($image) { $this->_image = $image; }
+		public function setLatitude($latitude) { $this->_latitude = $latitude; }
+		public function setLongitude($longitude) { $this->_longitude = $longitude; }
+
 	}
 ?>

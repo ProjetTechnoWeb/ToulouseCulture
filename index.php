@@ -29,7 +29,7 @@ $batimentsManager = new BatimentManager($bdd);
 		switch ($action) {
 		
 		case "accueil" : // si l'action est "accueil"			
-			$manifsSlider = $manifestationManager->randomManifSlider();
+			$manifsSlider = $manifestationManager->randomManifSlider("manif");
 			echo $twig->render('accueil.html.twig' , array('manifs' => $manifsSlider)); // viewer, va afficher le fichier accueil.html.twig	
 
 		break;
@@ -45,6 +45,10 @@ $batimentsManager = new BatimentManager($bdd);
 		case "chercher" : 
 			echo $twig->render('chercher.html.twig'); // viewer	
 		break;
+
+
+
+		// les listes au format JSON
 		case "listequartier" :
 			$quartiers = $quartierManager->getListeQuartier("json");
 			$quartiers = json_encode($quartiers);
@@ -55,7 +59,23 @@ $batimentsManager = new BatimentManager($bdd);
 			$batiments = json_encode($batiments);
 			echo $twig->render('listeBatiments.html.twig', array('batiments' => $batiments));
 		break;
+		case "listeManifsImages" :
+			$manifs = $manifestationManager->randomManifSlider("json");
+			$manifs = json_encode($manifs);
+			echo $twig->render('listeManifsImage.html.twig', array('manifs' => $manifs));
+		break;
+		case "listeTypesBat" :
+			$typesBat = $typeBatManager->getListTypeDeBatiments("json");
+			$typesBat = json_encode($typesBat);
+			echo $twig->render('listeTypesBat.html.twig', array('typesBat' => $typesBat));
+			break;
+		case "listeManifs" :
+			$listeManifs = $manifestationManager->listeManifs("json");
+			$listeManifs = json_encode($listeManifs);
+			echo $twig->render('listeManifestations.html.twig', array('listeManifs' => $listeManifs));
+		break;
 		}
+
 	}
 	else {		
 	

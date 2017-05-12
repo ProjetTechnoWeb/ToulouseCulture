@@ -1,15 +1,16 @@
 {% extends "index.html.twig" %}
 
 {% block section %}
-<form action="/action_page.php">
-  <fieldset>
-    <legend>Recherche d'une salle:</legend>
-    Nom de salle:<br>
-    <input type="text" name="firstname" value="">
-    <br><br>
+
+  <div id="formulaire">
+
+  <form action="/action_page.php">
+    <h2>Rechercher une salle</h2>
     
-    Type de salle:<br>
-    <form action="/action_page.php">
+    <fieldset>
+      <legend>Recherche d'une salle:</legend>
+ 
+    <label>Type de salle:</label>
     <select name="cars">
       <option value="Théatre">Théatre</option>
       <option value="Cinéma">Cinéma</option>
@@ -22,6 +23,6 @@
     </select>
   <br><br>
     <input type="submit" value="Submit">
-
+  </div>
 
 {% endblock %}

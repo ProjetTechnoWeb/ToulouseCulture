@@ -13,14 +13,19 @@ class TypeBatimentManager
         }
 		
 		// retourne l'ensemble des types de batiment
-		 public function getListTypeDeBatiments() {
+		 public function getListTypeDeBatiments($type) {
             $typesBatiments = array();  
             $q = $this->_db->query('SELECT idtypebat, typebat FROM TYPE_BATIMENT');
             while ($donnees = $q->fetch())
             {
-                $typesBatiments[] = new TypeBatiment($donnees);
+
+                $donnees2 = array('IDTYPEBAT' => $donnees[0],'TYPEBAT'=> $donnees[1]);
+                if($type == "json") {
+                    $typesBatiments[] = $donnees2;
+                } else {
+                    $typesBatiments[] = new TypeBatiment($donnees2);
+                }
             }
-            print_r($typesBatiments);
             return $typesBatiments;
         }
 		
