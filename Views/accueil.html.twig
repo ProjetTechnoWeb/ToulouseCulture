@@ -66,41 +66,53 @@
 
 	<script type="text/javascript">
 		   
-		var url = "http://projettechnoweb.esy.es/index.php?action=listeManifsImages";
+	var url = "http://projettechnoweb.esy.es/index.php?action=listeManifsImages";
+    function initialisation(){
+    
+    	var centreCarte = new google.maps.LatLng(43.604530, 1.443440);
         
-      
-      
-		function initialisation(){
+    	var optionsCarte = {
+     	    zoom: 12,
+        	center: centreCarte                                    
+     	}
+ 
+    	var Carte = new google.maps.Map(document.getElementById("carte"), optionsCarte);
+  
+ 	
+ 		$.get(url, function( data ) {
 
-			$.get(url, function( data ) {
-        
-        		data = JSON.parse(data.replace(/&quot;/g,'"'));
+        oInfo = new google.maps.InfoWindow();
+
+        	data = JSON.parse(data.replace(/&quot;/g,'"'));
         		
-        		$.each(data, function (index, val) {
+        	$.each(data, function (index, val) {
 
-                	var lat = val.LATITUDE;
-                	var lon = val.LONGITUDE;
+            	var lat = val.LATITUDE;
+            	var lon = val.LONGITUDE;
+            	var nom = val.NOMMANIF;
 
-                	var marqueurs = new google.maps.LatLng(lat, lon);
+
+               	var marqueur = new google.maps.Marker({
+                    position: new google.maps.LatLng(lon, lat),
+                    map: Carte
                 });
+                // crÃ©ation d'une infobulle en attente d'affichage
 
-				var optionsCarte = {
-					zoom: 13,
-					center: new google.maps.LatLng(43.604530, 1.443440)
-				}
 
-				var maCarte = new google.maps.Map(document.getElementById("carte"), marqueurs);
-		
+                google.maps.event.addListener(marqueur, 'click', function (data) {
+                    // affichage position du marker
+                    oInfo.setContent(nom);
+                    oInfo.open(Carte, marqueur);
+                });
+         	});
 
-				var optionsMarqueur = {
-					position: maCarte.getCenter(),
-					map: maCarte
-				};
+	
+ 
+			
+ 		});
+      
+	}
 
-				var marqueur = new google.maps.Marker(optionsMarqueur);
-
-			});
-		}
 	</script>
 	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuvgmNIZ8WXFy6hAnW_dcSJeVXyswCUBg&callback=initialisation"></script>
 
