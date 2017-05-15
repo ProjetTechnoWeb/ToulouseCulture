@@ -13,14 +13,14 @@ class MessageManager
         }
 		
 		// retourne l'ensemble des types de quartiers, soit un tableau convertible en JSON pour ajax, soit sous forme d'objets
-		 public function getMessages($idBat) {
+		public function getMessages($idBat) {
             $messages = array();  
-            $q = $this->_db->query('SELECT * FROM MESSAGE WHERE IDBAT = "'.$idBat.'"');
+            $q = $this->_db->query('SELECT * FROM MESSAGE WHERE ID_BAT = "'.$idBat.'"');
 
             while ($donnees = $q->fetch())
             {
 
-                $donnees2 = array('IDMESSAGE' => $donnees[0],'IDBAT'=> $donnees[1], 'DATEMESS'=> $donnees[2], 'HEUREMESS' =>$donnees[3], 'DESCPMESSAGE' => $donnees[4]);
+                $donnees2 = array('IDMESSAGE' => $donnees[0],'IDBAT'=> $donnees[1], 'DATEMESS'=> $donnees[2], 'HEUREMESS' =>$donnees[3], 'DESCMESS' => $donnees[4]);
                 
                 $messages[] = new Message($donnees2);
                
@@ -29,6 +29,13 @@ class MessageManager
             return $messages;
         }
 
+        // retourne l'ensemble des types de quartiers, soit un tableau convertible en JSON pour ajax, soit sous forme d'objets
+        public function ajoutMess($idBat, $desc) {
+            $req = 'INSERT INTO MESSAGE (ID_BAT,DESCRIPTIONMESSAGE) VALUES ("'.$idBat.'", "'.$desc.'")';
+        
+            return $this->_db->exec($req);
+           
+        }
 		
     }
 ?>
