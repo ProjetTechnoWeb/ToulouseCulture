@@ -23,8 +23,36 @@
         <input type="submit" class="bouton" value="Modifier la description">
     </form>
   {% endif %}
+
+  <div id="commentaires">
+
+  <h2>Avis sur la salle</h2>
+
+  {% if messages ==[] %}
+    <p>Il n'y a aucun avis sur cette salle.</p>
+
+  {% else %}
+
+    <ul class="avis">
+      {% for message in messages %}
+        <li>{{message.descMess}}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+   <form method="post" action="index.php?action=ajoutMessage">
+      <textarea placeholder="Ajoutez un message..." name="message"></textarea>
+      <input type="hidden" name="idBat" value="{{batiment.idBat}}">
+      <input type="submit" value="Valider">
+    </form>
+  </div>
+  </div>
+
+
   <div id="carteAffichage">
   </div>
+
+  
 
 
 {% endblock %}

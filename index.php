@@ -24,7 +24,7 @@ $typeBatManager = new TypeBatimentManager($bdd);
 $manifestationManager = new ManifestationManager($bdd);
 $quartierManager = new QuartierManager($bdd);
 $batimentsManager = new BatimentManager($bdd);
-$messageManager = new messageManager($bdd);
+$messageManager = new MessageManager($bdd);
 
 
 // ------------------------------------------------------------------------------------
@@ -64,7 +64,8 @@ $messageManager = new messageManager($bdd);
 			$idbatiment = $_POST;
 			$idbatiment = $idbatiment['idbatiment'];
 			$batiment = $batimentsManager->getBatiment($idbatiment);
-			echo $twig->render('batiment.html.twig', array("batiment" => $batiment));
+			$messages = $messageManager->getMessages($idbatiment);
+			echo $twig->render('batiment.html.twig', array("batiment" => $batiment, "messages" => $messages));
 		break;
 		case "batimentModifie" :
 			$batiment = $_POST;
@@ -73,8 +74,9 @@ $messageManager = new messageManager($bdd);
 		 	$batiment = $batimentsManager->getBatiment($idbatiment);
 		 	$bat = $batimentsManager->ModifDesc($idbatiment, $desc);
 		 	$batiment = $batimentsManager->getBatiment($idbatiment);
+		 	$messages = $messageManager->getMessages($idbatiment);
 		 	if($bat) {
-		 		echo $twig->render('batiment.html.twig', array("batiment" => $batiment));
+		 		echo $twig->render('batiment.html.twig', array("batiment" => $batiment, "messages" => $messages));
 		 	}
 		break;
 		case "modifBat" :
@@ -83,7 +85,15 @@ $messageManager = new messageManager($bdd);
 		 	$batiment = $batimentsManager->getBatiment($idbatiment);
 		 	echo $twig->render('modifDesc.html.twig', array("batiment" => $batiment));
 		break;
-
+		case "ajoutMessage" :
+			$message = $_POST;
+			$idbatiment = $message['idBat'];
+			$message = $message['message'];
+		 	$batiment = $batimentsManager->getBatiment($idbatiment);
+		 	$message = $messageManager ->ajoutMess($idbatiment, $message);
+			$messages = $messageManager->getMessages($idbatiment);
+		 	echo $twig->render('batiment.html.twig', array("batiment" => $batiment, "messages" => $messages));
+		break;
 		// les listes au format JSON
 		case "listequartier" :
 			$quartiers = $quartierManager->getListeQuartier("json");

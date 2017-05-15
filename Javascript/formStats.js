@@ -217,7 +217,7 @@ $(document).ready(function() {
         var field  = "<p>Manifestations</p>"
           + "<fieldset>"
           + "<legend><strong>Quartiers</strong></legend>"
-          + "<label>Sélectionnez les quartiers que vous souhaitez comparer : <i>(au moins 2)</i></label>"
+          + "<label>Sélectionnez les quartiers que vous souhaitez comparer :</label>"
           + "<select id='selectQuartierStat'>"
           + "<option value='99'>Sélection de quartier</option>"
           + "<option value='100'>Tous les quartiers</option>"
