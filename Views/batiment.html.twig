@@ -6,6 +6,8 @@
 
   <h2>{{batiment.nom}}</h2>
 
+  <input type="hidden" id="lat" value="{{batiment.longitude}}">
+  <input type="hidden" id="lon" value="{{batiment.latitude}}">
   {% if batiment.desc == "" %}
     <p>Aucune description n'a été ajoutée à ce batiment.</p>
     <form method="post" action="index.php?action=batimentModifie">

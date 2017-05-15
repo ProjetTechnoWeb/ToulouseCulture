@@ -287,7 +287,7 @@ $(document).ready(function() {
 
     });
     google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawSalles(tab2));
+    google.charts.setOnLoadCallback(drawManifs(tab2));
     });
 
     $("body").on('click', '.test', function() { 
@@ -295,7 +295,7 @@ $(document).ready(function() {
     });
 
     
-    function drawSalles(tab) {
+    function drawManifs(tab) {
       $.get(urlQuartier, function( data ) {
       data = JSON.parse(data.replace(/&quot;/g,'"'));
       var tab3 =[];
