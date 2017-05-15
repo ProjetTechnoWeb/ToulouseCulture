@@ -1,0 +1,112 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+
+  <div id="listeSalle">
+
+  <h2>Batiment(s) trouvé(s)</h2>
+
+  <ul id="rec">
+  {% for batiment in batiments %}
+
+  	<li id="{{batiment.idBat}}">{{batiment.nom}}<ul>
+  		<li><form method="post" action="index.php?action=batiment">
+					<input type="submit" class="bouton" value="En savoir plus"/>
+					<input type="hidden" name="idbatiment" value="{{batiment.idBat}}"/>
+				</form></li>
+  		</ul></li>
+
+  	<input class="lon{{batiment.idBat}}" type="hidden" value="{{batiment.longitude}}">
+  	<input class="lat{{batiment.idBat}}" type="hidden" value="{{batiment.latitude}}">
+
+  {% endfor %}
+  </ul>
+  <input type="hidden" id="poly" value="{{quartier}}">
+
+  </div>
+
+  <div id="carteAffichage">
+  </div>
+
+
+ 
+	<script type="text/javascript">
+
+	var li = $("#rec li").first().text();
+	if(li == "") {
+		var p = "<p>Nous n'avons trouvé aucun batiment correspondant à votre recherche</p>";
+		var a = "<a  href='index.php?action=chercher'>Vous souhaitez faire une nouvelle recherche ?</a>";
+		$("#listeSalle").append(p,a);
+
+	}
+
+	
+
+
+    function initialisation(){
+    
+    	var centreCarte = new google.maps.LatLng(43.604530, 1.443440);
+        
+    	var optionsCarte = {
+     	    zoom:12,
+        	center: centreCarte                                    
+     	}
+ 
+    	var Carte = new google.maps.Map(document.getElementById("carteAffichage"), optionsCarte);
+  
+ 	
+ 
+
+
+         oInfo = new google.maps.InfoWindow();
+
+        		
+        					
+			$("#rec li").each(function() {
+ 				var id = $(this).attr("id");
+
+ 				var lon = $(".lon"+id).val();
+ 				var lat = $(".lat"+id).val();
+ 				var nom = $(this).text();
+ 				 			
+
+               	var marqueur = new google.maps.Marker({
+                    position: new google.maps.LatLng(lon, lat),
+                    map: Carte
+                });
+                // crÃ©ation d'une infobulle en attente d'affichage
+
+
+                google.maps.event.addListener(marqueur, 'click', function (data) {
+                    // affichage position du marker
+                    oInfo.setContent(nom);
+                    oInfo.open(Carte, marqueur);
+                });
+         	
+ 
+			
+ 		});
+		/* var poly= $("#poly").val();
+		poly = JSON.stringify(poly);
+
+		poly = JSON.parse(poly.replace(/&quot;/g,'"'));
+
+		console.log(poly.POLYGONE);
+		var tableauPointsPolygone = [];
+
+	*/	
+	//	console.log(tableauPointsPolygone);
+		/*
+		var optionsPolygone = {
+					map: Carte,
+					paths: tableauPointsPolygone
+		};
+		var monPolygone = new google.maps.Polygon( optionsPolygone );
+      */
+	}
+
+	</script>
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuvgmNIZ8WXFy6hAnW_dcSJeVXyswCUBg&callback=initialisation"></script>
+
+{% endblock %}

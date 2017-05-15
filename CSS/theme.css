@@ -85,8 +85,32 @@ footer{
 	height: 550px;
 }
 
-/* ----------- Statistiques ------------ */
-#formulaireStats,#formulaire {
+/* ----------- Recherche ------------- */
+#carteAffichage {
+	float: left;
+	left: 5%;
+	width: 50%;
+	height: 550px;
+	margin-top: 50px;
+}
+
+.bouton {
+	margin: 0;
+    padding: 0;
+    line-height: 100%; /* Si ça fonctionne pas mets 0 */
+    border: 0;
+    background: none; /* ou transparent je sais plus... */
+    font: 15px; /* Définis le même font qu'un lien traditionnel */;
+    text-decoration: underline; /* Normalement */
+}
+
+#batiment textarea {
+	width: 90%;
+	height: 100px;
+}
+
+/* ----------- Statistiques, batiment, recherche ------------ */
+#formulaireStats,#formulaire, #listeSalle, #batiment{
 	float: left;
 	margin-left: 5%;
 	width: 35%;
@@ -95,11 +119,17 @@ footer{
 	background-color: rgba(144, 0, 91, 0.1);
 	border-radius: 10px;
 }
-
+ #listeSalle h2, #batiment h2 {
+ 	margin-left : 5%;
+ 	color: #90005B;
+ }
+  #listeSalle p, #listeSalle a, #batiment p {
+ 	margin-left : 5%;
+ }
 #formulaireStats h2, #formulaire h2 {
 	color: #90005B;
 }
-#formulaireStats form, #formulaire form {
+#formulaireStats form, #formulaire form, #batiment form {
 	margin-left: 5%;
 	margin-right: 5%;
 }

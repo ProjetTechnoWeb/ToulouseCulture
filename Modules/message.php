@@ -1,20 +1,20 @@
 <?php 
 // définition de la classe Message
 class Message {   
-		private $idMessage;
-		private $idBat; 
-		private	$dateMess;
-		private $heureMess;
-		private $descMess;
+		private $_idMessage;
+		private $_idBat; 
+		private	$_dateMess;
+		private $_heureMess;
+		private $_descMess;
 
         // constructeur
         public function __construct(array $donnees) {
 		// initialisation d'un batiment à partir d'un tableau de données
-			if (isset($donnees['idMessage'])) { $this->_idMessage = $donnees['idMessage']; }
-			if (isset($donnees['idBat'])) { $this->_idBat = $donnees['idBat']; }
-			if (isset($donnees['dateMess'])) { $this->_dateMess = $donnees['dateMess']; }
-			if (isset($donnees['heureMess'])) { $this->_heureMess = $donnees['heureMess']; }
-			if (isset($donnees['descMess'])) { $this->_descMess = $donnees['descMess']; }
+			if (isset($donnees['IDMESSAGE'])) { $this->_idMessage = $donnees['IDMESSAGE']; }
+			if (isset($donnees['IDBAT'])) { $this->_idBat = $donnees['IDBAT']; }
+			if (isset($donnees['DATEMESS'])) { $this->_dateMess = $donnees['DATEMESS']; }
+			if (isset($donnees['HEUREMESS'])) { $this->_heureMess = $donnees['HEUREMESS']; }
+			if (isset($donnees['DESCMESS'])) { $this->_descMess = $donnees['DESCMESS']; }
 		}	
 		
         // GETTERS //

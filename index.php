@@ -10,19 +10,21 @@ require_once ("Modules/typebatiments.php");
 require_once ("Modules/manifestation.php");
 require_once ("Modules/quartier.php");
 require_once ("Modules/batiment.php");
+require_once ("Modules/message.php");
 
 // ----------------------Les managers ---------------------------
 require_once("Models/typeBatimentsManager.php");
 require_once("Models/batimentsManager.php");
 require_once("Models/manifestationManager.php");
 require_once("Models/quartierManager.php");
+require_once("Models/messageManager.php");
 
 // ----------------------Les managers ---------------------------
 $typeBatManager = new TypeBatimentManager($bdd);
 $manifestationManager = new ManifestationManager($bdd);
 $quartierManager = new QuartierManager($bdd);
 $batimentsManager = new BatimentManager($bdd);
-
+$messageManager = new messageManager($bdd);
 // ------------------------------------------------------------------------------------
 	if (isset($_GET["action"])) {
 		$action = $_GET["action"]; 
@@ -43,9 +45,25 @@ $batimentsManager = new BatimentManager($bdd);
 			echo $twig->render('calendrier.html.twig'); // viewer	
 		break;
 		case "chercher" : 
-			echo $twig->render('chercher.html.twig'); // viewer	
+			$quartiers = $quartierManager->getListeQuartier("objet");
+			$typebatiments = $typeBatManager->getListTypeDeBatiments("objet");
+			echo $twig->render('chercher.html.twig', array("quartiers" => $quartiers, "typesBat" => $typebatiments)); // viewer	
 		break;
-
+		case "rechercheSalle" : 
+			$valeurs = $_POST;
+			$idquartier = $valeurs['quartier'];
+			$idtypebat  = $valeurs['typeBat'];
+			$quartier = $quartierManager->getQuartier($idquartier);
+			$quartier = json_encode($quartier);
+			$batiments = $batimentsManager->getListeBatimentsRecherche($idquartier, $idtypebat);
+			echo $twig->render('affichagesSalles.html.twig', array("batiments" => $batiments, 'quartier' => $quartier)); // viewer	
+		break;
+		case "batiment" :
+			$idbatiment = $_POST;
+			$idbatiment = $idbatiment['idbatiment'];
+			$batiment = $batimentsManager->getBatiment($idbatiment);
+			echo $twig->render('batiment.html.twig', array("batiment" => $batiment));
+		break;
 
 
 		// les listes au format JSON
@@ -78,9 +96,9 @@ $batimentsManager = new BatimentManager($bdd);
 
 	}
 	else {		
-	
-	echo $twig->render('accueil.html.twig'); 
-	
+	$manifsSlider = $manifestationManager->randomManifSlider("manif");
+			echo $twig->render('accueil.html.twig' , array('manifs' => $manifsSlider)); // viewer, va afficher le fichier accueil.html.twig	
+
 	}
 
 
