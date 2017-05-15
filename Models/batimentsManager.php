@@ -25,12 +25,39 @@ class BatimentManager
                     $batiments[] = $donnees2;
                     
                 } else {
-                $batiments[] = new Quartier($donnees2);
+                $batiments[] = new Batiment($donnees2);
                }
             }
 
             return $batiments;
         }
-		
+
+		// retourne une liste de batiments selon leur quartier et leur type
+         public function getListeBatimentsRecherche($idquartier, $idtype) {
+            $batiments = array();  
+            $q = $this->_db->query('SELECT * FROM BAT WHERE IDTYPEBAT="'.$idtype.'" AND ID_QUARTIER="'.$idquartier.'"');
+
+            while ($donnees = $q->fetch())
+            {
+
+                $donnees2 = array('IDBAT' => $donnees[0],'IDQUARTIER'=> $donnees[1], 'IDTYPEBAT'=> $donnees[2], 'LONGITUDE' =>$donnees[3], 'LATITUDE' => $donnees[4],'NOM'=> $donnees[5]);
+               
+                $batiments[] = new Batiment($donnees2);
+               
+            }
+
+            
+            return $batiments;
+        }
+
+
+        // retourne un quartier en fonction de son id
+        public function getBatiment($id) {
+            $batiment;
+            $q = $this->_db->query('SELECT * FROM BAT WHERE ID_BAT = "'.$id.'"');
+
+            $batiment = new Batiment($q->fetch());
+            return $batiment;
+        }
     }
 ?>

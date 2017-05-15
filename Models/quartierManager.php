@@ -31,6 +31,16 @@ class QuartierManager
 
             return $quartiers;
         }
+
+
+        // retourne un quartier en fonction de son id
+        public function getQuartier($id) {
+            $quartier;
+            $q = $this->_db->query('SELECT * FROM QUARTIER WHERE ID_QUARTIER = "'.$id.'"');
+
+            $quartier = $q->fetch();
+            return $quartier;
+        }
 		
     }
 ?>

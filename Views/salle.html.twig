@@ -29,32 +29,4 @@
     <input type="submit" id="rechercheSalle" name="rechercheSalle" value="Rechercher">
   </div>
 
-
-  <div id="carteRecherche">
-
-  </div>
-
-  <script type="text/javascript">
-       
-  var url = "http://projettechnoweb.esy.es/index.php?action=listeManifsImages";
-    function initialisation(){
-    
-      var centreCarte = new google.maps.LatLng(43.604530, 1.443440);
-        
-      var optionsCarte = {
-          zoom: 12,
-          center: centreCarte                                    
-      }
-      
-      var tableauPointsPolygone = [];
-
-      var Carte = new google.maps.Map(document.getElementById("carteRecherche"), optionsCarte);
-  
-  
- 
-      
-  }
-
-  </script>
-  <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuvgmNIZ8WXFy6hAnW_dcSJeVXyswCUBg&callback=initialisation"></script> -->
 {% endblock %}
