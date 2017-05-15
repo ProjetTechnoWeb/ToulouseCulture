@@ -1,5 +1,9 @@
 $(document).ready(function() {
-//fonction qui permet le slide tout seul
+	
+	/*Cette fonction est déjà présente dans la partie acceuil.html.twig
+	le lien js ne voulais pas ce faire */
+
+//fonction qui permet le slide d'image
 	function showSlides() {
 		var i;
 		var slides = document.getElementsByClassName("mySlides");
@@ -14,7 +18,7 @@ $(document).ready(function() {
 		}
 		slides[slideIndex-1].style.display = "block";  
 		dots[slideIndex-1].className += " active";
-		setTimeout(showSlides, 100000); // Change l'image toute les 2 secondes 
+		setTimeout(showSlides, 100000); // Change l'image toute les 10 secondes 
 	}
 
 });

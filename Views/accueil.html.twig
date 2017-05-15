@@ -18,7 +18,7 @@
 
 		<div class="slideshow-container">
 
-		{% for manif in manifs %} <!-- POur chacune des trois manfis -->
+		{% for manif in manifs %} <!-- Pour chacune des trois manfis -->
 	<div class="mySlides fade">
 	  <div class="titre">{{manif.nomManif}}</div>
 	  <a href="http://www.tnt-cite.com/content/fr/date/2017-05-03/Les-Oiseaux_De-l_imagination/#/184/De-l_imagination"><img class="imagesSlider" src="Images/{{manif.image}}" style="width:100%">
@@ -32,13 +32,13 @@
 	</div>
 
 	<br>
-
+	<!-- Point en dessous du slider-->
 	<div style="text-align:center">
 	  <span class="dot"></span> 
 	  <span class="dot"></span> 
 	  <span class="dot"></span> 
 	</div>
-	
+
 	<script type="text/javascript">
 	var slideIndex = 0;
 	showSlides();
@@ -65,7 +65,7 @@
 	</script>
 
 	<script type="text/javascript">
-		   
+		  
 	var url = "http://projettechnoweb.esy.es/index.php?action=listeManifsImages";
     function initialisation(){
     
