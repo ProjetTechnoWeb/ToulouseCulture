@@ -6,12 +6,19 @@
 
   <h2>{{batiment.nom}}</h2>
 
-  {% if batiment.descrLong == "" %}
+  {% if batiment.desc == "" %}
     <p>Aucune description n'a été ajoutée à ce batiment.</p>
-    <form method="post" action="index.php?action=batiment">
-      <textarea placeholder="Ajoutez une description..."></textarea>
-      <input type="hidden" value="{{batiment.idBat}}">
+    <form method="post" action="index.php?action=batimentModifie">
+      <textarea placeholder="Ajoutez une description..." name="desc"></textarea>
+      <input type="hidden" name="idBat" value="{{batiment.idBat}}">
       <input type="submit" value="Valider">
+    </form>
+  {% else %}
+
+    <p>{{batiment.desc}}</p>
+      <form method="post" action="index.php?action=modifBat">
+        <input type="hidden" name="idBat" value="{{batiment.idBat}}">
+        <input type="submit" class="bouton" value="Modifier la description">
     </form>
   {% endif %}
   <div id="carteAffichage">

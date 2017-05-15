@@ -1,0 +1,18 @@
+{% extends "index.html.twig" %}
+
+{% block section %}
+
+  <div id="batiment">
+
+  <h2>{{batiment.nom}}</h2>
+
+     <form method="post" action="index.php?action=batimentModifie">
+      <textarea  name="desc">{{batiment.desc}}</textarea>
+      <input type="hidden" name="idBat" value="{{batiment.idBat}}">
+      <input type="submit" value="Valider">
+     </form>
+
+  </div>-
+
+
+{% endblock %}

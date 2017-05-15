@@ -25,6 +25,8 @@ $manifestationManager = new ManifestationManager($bdd);
 $quartierManager = new QuartierManager($bdd);
 $batimentsManager = new BatimentManager($bdd);
 $messageManager = new messageManager($bdd);
+
+
 // ------------------------------------------------------------------------------------
 	if (isset($_GET["action"])) {
 		$action = $_GET["action"]; 
@@ -64,7 +66,23 @@ $messageManager = new messageManager($bdd);
 			$batiment = $batimentsManager->getBatiment($idbatiment);
 			echo $twig->render('batiment.html.twig', array("batiment" => $batiment));
 		break;
-
+		case "batimentModifie" :
+			$batiment = $_POST;
+			$idbatiment = $batiment['idBat'];
+			$desc = $batiment['desc'];
+		 	$batiment = $batimentsManager->getBatiment($idbatiment);
+		 	$bat = $batimentsManager->ModifDesc($idbatiment, $desc);
+		 	$batiment = $batimentsManager->getBatiment($idbatiment);
+		 	if($bat) {
+		 		echo $twig->render('batiment.html.twig', array("batiment" => $batiment));
+		 	}
+		break;
+		case "modifBat" :
+			$batiment = $_POST;
+			$idbatiment = $batiment['idBat'];
+		 	$batiment = $batimentsManager->getBatiment($idbatiment);
+		 	echo $twig->render('modifDesc.html.twig', array("batiment" => $batiment));
+		break;
 
 		// les listes au format JSON
 		case "listequartier" :
