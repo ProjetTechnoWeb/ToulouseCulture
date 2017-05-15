@@ -23,8 +23,39 @@
         <input type="submit" class="bouton" value="Modifier la description">
     </form>
   {% endif %}
-  <div id="carteAffichage">
   </div>
 
+  <div id="carteAffichage">
 
+  </div>
+
+  <script type="text/javascript">
+       
+  var url = "http://projettechnoweb.esy.es/index.php?action=batiment";   
+
+   function initialisation(){
+    
+      var lon = $("#lon").val();
+      var lat = $("#lat").val();
+      var centreCarte = new google.maps.LatLng(lat,lon);
+      console.log(lon,lat);
+        
+      var optionsCarte = {
+          zoom: 13,
+          center: centreCarte                                    
+      }
+
+    var Carte = new google.maps.Map(document.getElementById("carteAffichage"), optionsCarte);
+  
+
+
+                var marqueur = new google.maps.Marker({
+                    position: new google.maps.LatLng(lat, lon),
+                    map: Carte
+                });
+                // crÃ©ation d'une infobulle en attente d'affichage   
+  }
+
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBuvgmNIZ8WXFy6hAnW_dcSJeVXyswCUBg&callback=initialisation"></script>
 {% endblock %}
